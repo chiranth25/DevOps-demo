@@ -2,18 +2,22 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: devops-demo-deployment
+
 spec:
   replicas: 2
   selector:
     matchLabels:
       app: devops-demo
+
   template:
     metadata:
       labels:
         app: devops-demo
+
     spec:
       containers:
-      - name: devops-demo
-        image: chiranth25/devops-demo:latest
-        ports:
-        - containerPort: 80
+        - name: devops-demo
+          image: chiranth25/demo-app
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
