@@ -1,3 +1,9 @@
-from calculator import add
+from flask import Flask
 
-print("Sum:", add(10, 5))
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello Kubernetes"
+
+app.run(host='0.0.0.0', port=5000)
